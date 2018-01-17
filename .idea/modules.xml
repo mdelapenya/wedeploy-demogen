@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.wedeploy.tools.demogenerator.iml" filepath="$PROJECT_DIR$/.idea/modules/com.wedeploy.tools.demogenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.wedeploy.tools.demogenerator_main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.wedeploy.tools.demogenerator_main.iml" group="com.wedeploy.tools.demogenerator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.wedeploy.tools.demogenerator_test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.wedeploy.tools.demogenerator_test.iml" group="com.wedeploy.tools.demogenerator" />
+    </modules>
+  </component>
+</project>
