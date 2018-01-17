@@ -103,66 +103,77 @@ public class WeDeployServiceImpl implements WeDeployService {
 			return weDeployService;
 		}
 
+		@Override
 		public Builder withCpu(int cpu) {
 			_weDeployDescriptor._cpu = Optional.of(cpu);
 
 			return this;
 		}
 
+		@Override
 		public Builder withCustomDomains(String... customDomains) {
 			_weDeployDescriptor._customDomains = Optional.of(customDomains);
 
 			return this;
 		}
 
+		@Override
 		public Builder withDependencies(String... dependencies) {
 			_weDeployDescriptor._dependencies = Optional.of(dependencies);
 
 			return this;
 		}
 
+		@Override
 		public Builder withEnv(Map<String, String> env) {
 			_weDeployDescriptor._env = Optional.of(env);
 
 			return this;
 		}
 
+		@Override
 		public Builder withHealthCheck(HealthCheck healthCheck) {
 			_weDeployDescriptor._healthCheck = Optional.of(healthCheck);
 
 			return this;
 		}
 
+		@Override
 		public Builder withImage(String image) {
 			_weDeployDescriptor._image = Optional.of(image);
 
 			return this;
 		}
 
+		@Override
 		public Builder withMemory(int memory) {
 			_weDeployDescriptor._memory = Optional.of(memory);
 
 			return this;
 		}
 
+		@Override
 		public Builder withPort(int port) {
 			_weDeployDescriptor._port = Optional.of(port);
 
 			return this;
 		}
 
+		@Override
 		public Builder withScale(int scale) {
 			_weDeployDescriptor._scale = Optional.of(scale);
 
 			return this;
 		}
 
+		@Override
 		public Builder withVolume(String volume) {
 			_weDeployDescriptor._volume = Optional.of(volume);
 
 			return this;
 		}
 
+		@Override
 		public Builder withZeroDowntime() {
 			_weDeployDescriptor._zeroDowntime = true;
 
