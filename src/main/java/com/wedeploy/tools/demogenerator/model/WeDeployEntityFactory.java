@@ -19,17 +19,17 @@ import com.wedeploy.tools.demogenerator.model.internal.WeDeployServiceImpl;
 /**
  * @author Manuel de la Peña
  */
-public final class WeDeployServiceFactory {
+public final class WeDeployEntityFactory {
 
-	public static final WeDeployServiceFactory getInstance() {
+	public static final WeDeployEntityFactory getInstance() {
 		return instance;
 	}
 
-	public WeDeployBuilder getServiceBuilder(String id) {
-		return new WeDeployServiceImpl.WeDeployServiceBuilder(id);
+	public WeDeployServiceBuilder getServiceBuilder(String id) {
+		return new WeDeployServiceImpl.Builder(id);
 	}
 
-	private static final WeDeployServiceFactory instance =
-		new WeDeployServiceFactory();
+	private static final WeDeployEntityFactory instance =
+		new WeDeployEntityFactory();
 
 }

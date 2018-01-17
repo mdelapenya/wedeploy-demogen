@@ -15,8 +15,8 @@
 package com.wedeploy.tools.demogenerator.model.internal;
 
 import com.wedeploy.tools.demogenerator.model.HealthCheck;
-import com.wedeploy.tools.demogenerator.model.WeDeployBuilder;
 import com.wedeploy.tools.demogenerator.model.WeDeployService;
+import com.wedeploy.tools.demogenerator.model.WeDeployServiceBuilder;
 
 import java.util.Map;
 import java.util.Optional;
@@ -86,9 +86,9 @@ public class WeDeployServiceImpl implements WeDeployService {
 		return _zeroDowntime;
 	}
 
-	public static class WeDeployServiceBuilder implements WeDeployBuilder {
+	public static class Builder implements WeDeployServiceBuilder {
 
-		public WeDeployServiceBuilder(String id) {
+		public Builder(String id) {
 			_weDeployDescriptor = new WeDeployServiceImpl();
 
 			_weDeployDescriptor._id = id;
@@ -103,67 +103,67 @@ public class WeDeployServiceImpl implements WeDeployService {
 			return weDeployService;
 		}
 
-		public WeDeployBuilder withCpu(int cpu) {
+		public Builder withCpu(int cpu) {
 			_weDeployDescriptor._cpu = Optional.of(cpu);
 
 			return this;
 		}
 
-		public WeDeployBuilder withCustomDomains(String... customDomains) {
+		public Builder withCustomDomains(String... customDomains) {
 			_weDeployDescriptor._customDomains = Optional.of(customDomains);
 
 			return this;
 		}
 
-		public WeDeployBuilder withDependencies(String... dependencies) {
+		public Builder withDependencies(String... dependencies) {
 			_weDeployDescriptor._dependencies = Optional.of(dependencies);
 
 			return this;
 		}
 
-		public WeDeployBuilder withEnv(Map<String, String> env) {
+		public Builder withEnv(Map<String, String> env) {
 			_weDeployDescriptor._env = Optional.of(env);
 
 			return this;
 		}
 
-		public WeDeployBuilder withHealthCheck(HealthCheck healthCheck) {
+		public Builder withHealthCheck(HealthCheck healthCheck) {
 			_weDeployDescriptor._healthCheck = Optional.of(healthCheck);
 
 			return this;
 		}
 
-		public WeDeployBuilder withImage(String image) {
+		public Builder withImage(String image) {
 			_weDeployDescriptor._image = Optional.of(image);
 
 			return this;
 		}
 
-		public WeDeployBuilder withMemory(int memory) {
+		public Builder withMemory(int memory) {
 			_weDeployDescriptor._memory = Optional.of(memory);
 
 			return this;
 		}
 
-		public WeDeployBuilder withPort(int port) {
+		public Builder withPort(int port) {
 			_weDeployDescriptor._port = Optional.of(port);
 
 			return this;
 		}
 
-		public WeDeployBuilder withScale(int scale) {
+		public Builder withScale(int scale) {
 			_weDeployDescriptor._scale = Optional.of(scale);
 
 			return this;
 		}
 
-		public WeDeployBuilder withVolume(String volume) {
+		public Builder withVolume(String volume) {
 			_weDeployDescriptor._volume = Optional.of(volume);
 
 			return this;
 		}
 
-		public WeDeployBuilder withZeroDowntime() {
+		public Builder withZeroDowntime() {
 			_weDeployDescriptor._zeroDowntime = true;
 
 			return this;

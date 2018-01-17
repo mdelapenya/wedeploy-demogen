@@ -16,9 +16,9 @@ package com.wedeploy.tools.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.wedeploy.tools.demogenerator.model.WeDeployBuilder;
 import com.wedeploy.tools.demogenerator.model.WeDeployService;
-import com.wedeploy.tools.demogenerator.model.WeDeployServiceFactory;
+import com.wedeploy.tools.demogenerator.model.WeDeployServiceBuilder;
+import com.wedeploy.tools.demogenerator.model.WeDeployEntityFactory;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,8 +54,8 @@ public class MainController {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new Jdk8Module());
 
-		WeDeployBuilder serviceBuilder =
-			WeDeployServiceFactory.getInstance().getServiceBuilder(id);
+		WeDeployServiceBuilder serviceBuilder =
+			WeDeployEntityFactory.getInstance().getServiceBuilder(id);
 
 		if (cpu.isPresent()) {
 			serviceBuilder.withCpu(cpu.get());

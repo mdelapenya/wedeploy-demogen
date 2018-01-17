@@ -32,7 +32,7 @@ public class WeDeployServiceTest {
 	public void testBuild() {
 		String id = "service";
 
-		WeDeployBuilder builder = factory.getServiceBuilder(id);
+		WeDeployServiceBuilder builder = factory.getServiceBuilder(id);
 
 		builder.withCpu(3);
 		builder.withCustomDomains("foo.com", "bar.es");
@@ -75,7 +75,7 @@ public class WeDeployServiceTest {
 	public void testBuildWithCommandHealthCheck() {
 		String id = "service";
 
-		WeDeployBuilder builder = factory.getServiceBuilder(id);
+		WeDeployServiceBuilder builder = factory.getServiceBuilder(id);
 
 		builder.withHealthCheck(
 			new CommandHealthCheck(
@@ -95,7 +95,7 @@ public class WeDeployServiceTest {
 	public void testBuildWithUrlHealthCheck() {
 		String id = "service";
 
-		WeDeployBuilder builder = factory.getServiceBuilder(id);
+		WeDeployServiceBuilder builder = factory.getServiceBuilder(id);
 
 		builder.withHealthCheck(new UrlHealthCheck("localhost/blog/"));
 
@@ -108,7 +108,7 @@ public class WeDeployServiceTest {
 			"localhost/blog/", healthCheck.getHealthCheckValue());
 	}
 
-	private static WeDeployServiceFactory factory =
-		WeDeployServiceFactory.getInstance();
+	private static WeDeployEntityFactory factory =
+		WeDeployEntityFactory.getInstance();
 
 }

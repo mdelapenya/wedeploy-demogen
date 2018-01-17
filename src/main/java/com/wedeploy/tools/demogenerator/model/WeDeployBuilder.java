@@ -14,35 +14,11 @@
 
 package com.wedeploy.tools.demogenerator.model;
 
-import java.util.Map;
-
 /**
  * @author Manuel de la Peña
  */
-public interface WeDeployBuilder {
+public interface WeDeployBuilder<T> {
 
-	WeDeployService build();
-
-	WeDeployBuilder withCpu(int cpu);
-
-	WeDeployBuilder withCustomDomains(String... customDomains);
-
-	WeDeployBuilder withDependencies(String... dependencies);
-
-	WeDeployBuilder withEnv(Map<String, String> env);
-
-	WeDeployBuilder withHealthCheck(HealthCheck healthCheck);
-
-	WeDeployBuilder withImage(String image);
-
-	WeDeployBuilder withMemory(int memory);
-
-	WeDeployBuilder withPort(int port);
-
-	WeDeployBuilder withScale(int scale);
-
-	WeDeployBuilder withVolume(String volume);
-
-	WeDeployBuilder withZeroDowntime();
+	T build();
 
 }
