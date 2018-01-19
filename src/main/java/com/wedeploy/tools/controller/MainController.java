@@ -16,9 +16,11 @@ package com.wedeploy.tools.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.wedeploy.tools.demogenerator.model.WeDeployService;
-import com.wedeploy.tools.demogenerator.model.WeDeployServiceBuilder;
+
 import com.wedeploy.tools.demogenerator.model.WeDeployEntityFactory;
+import com.wedeploy.tools.demogenerator.model.service.WeDeployService;
+import com.wedeploy.tools.demogenerator.model.service.WeDeployServiceBuilder;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;

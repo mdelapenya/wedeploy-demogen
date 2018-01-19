@@ -12,10 +12,15 @@
  * details.
  */
 
-package com.wedeploy.tools.demogenerator.model;
+package com.wedeploy.tools.demogenerator.model.service;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import com.wedeploy.tools.demogenerator.model.WeDeployEntityFactory;
+import com.wedeploy.tools.demogenerator.model.healtcheck.CommandHealthCheck;
+import com.wedeploy.tools.demogenerator.model.healtcheck.HealthCheck;
+import com.wedeploy.tools.demogenerator.model.healtcheck.UrlHealthCheck;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -14,8 +14,10 @@
 
 package com.wedeploy.tools.demogenerator.model;
 
+import com.wedeploy.tools.demogenerator.model.demo.WeDeployDemoBuilder;
 import com.wedeploy.tools.demogenerator.model.internal.WeDeployDemoImpl;
 import com.wedeploy.tools.demogenerator.model.internal.WeDeployServiceImpl;
+import com.wedeploy.tools.demogenerator.model.service.WeDeployServiceBuilder;
 
 /**
  * @author Manuel de la Peña

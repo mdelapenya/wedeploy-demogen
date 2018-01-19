@@ -12,10 +12,11 @@
  * details.
  */
 
-package com.wedeploy.tools.demogenerator.model;
+package com.wedeploy.tools.demogenerator.model.service;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.wedeploy.tools.demogenerator.model.healtcheck.HealthCheck;
 
 import java.util.Map;
 import java.util.Optional;

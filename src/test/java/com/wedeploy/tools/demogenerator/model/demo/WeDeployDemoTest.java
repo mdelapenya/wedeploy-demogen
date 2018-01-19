@@ -12,7 +12,10 @@
  * details.
  */
 
-package com.wedeploy.tools.demogenerator.model;
+package com.wedeploy.tools.demogenerator.model.demo;
+
+import com.wedeploy.tools.demogenerator.model.WeDeployEntityFactory;
+import com.wedeploy.tools.demogenerator.model.service.WeDeployServiceBuilder;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.wedeploy.tools.demogenerator.model;
+package com.wedeploy.tools.demogenerator.model.healtcheck;
 
 /**
  * @author Manuel de la Peña

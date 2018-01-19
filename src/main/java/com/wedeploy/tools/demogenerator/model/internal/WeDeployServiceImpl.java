@@ -14,9 +14,9 @@
 
 package com.wedeploy.tools.demogenerator.model.internal;
 
-import com.wedeploy.tools.demogenerator.model.HealthCheck;
-import com.wedeploy.tools.demogenerator.model.WeDeployService;
-import com.wedeploy.tools.demogenerator.model.WeDeployServiceBuilder;
+import com.wedeploy.tools.demogenerator.model.healtcheck.HealthCheck;
+import com.wedeploy.tools.demogenerator.model.service.WeDeployService;
+import com.wedeploy.tools.demogenerator.model.service.WeDeployServiceBuilder;
 
 import java.util.Map;
 import java.util.Optional;

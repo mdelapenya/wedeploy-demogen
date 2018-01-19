@@ -14,9 +14,9 @@
 
 package com.wedeploy.tools.demogenerator.model.internal;
 
-import com.wedeploy.tools.demogenerator.model.WeDeployDemo;
-import com.wedeploy.tools.demogenerator.model.WeDeployDemoBuilder;
-import com.wedeploy.tools.demogenerator.model.WeDeployService;
+import com.wedeploy.tools.demogenerator.model.demo.WeDeployDemo;
+import com.wedeploy.tools.demogenerator.model.demo.WeDeployDemoBuilder;
+import com.wedeploy.tools.demogenerator.model.service.WeDeployService;
 
 import java.util.Arrays;
 import java.util.List;

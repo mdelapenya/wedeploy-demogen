@@ -12,7 +12,10 @@
  * details.
  */
 
-package com.wedeploy.tools.demogenerator.model;
+package com.wedeploy.tools.demogenerator.model.service;
+
+import com.wedeploy.tools.demogenerator.model.healtcheck.HealthCheck;
+import com.wedeploy.tools.demogenerator.model.WeDeployBuilder;
 
 import java.util.Map;
 

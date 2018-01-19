@@ -12,15 +12,19 @@
  * details.
  */
 
-package com.wedeploy.tools.demogenerator.model;
+package com.wedeploy.tools.demogenerator.model.demo;
+
+import com.wedeploy.tools.demogenerator.model.service.WeDeployService;
+
+import java.util.List;
 
 /**
  * @author Manuel de la Peña
  */
-public interface WeDeployDemoBuilder extends WeDeployBuilder<WeDeployDemo> {
+public interface WeDeployDemo {
 
-	WeDeployDemoBuilder withService(WeDeployService weDeployService);
+	String getName();
 
-	WeDeployDemoBuilder withServices(WeDeployService... weDeployServices);
+	List<WeDeployService> getServices();
 
 }
