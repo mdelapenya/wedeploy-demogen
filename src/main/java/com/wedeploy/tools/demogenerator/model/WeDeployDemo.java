@@ -14,27 +14,15 @@
 
 package com.wedeploy.tools.demogenerator.model;
 
-import com.wedeploy.tools.demogenerator.model.internal.WeDeployDemoImpl;
-import com.wedeploy.tools.demogenerator.model.internal.WeDeployServiceImpl;
+import java.util.List;
 
 /**
  * @author Manuel de la Peña
  */
-public final class WeDeployEntityFactory {
+public interface WeDeployDemo {
 
-	public static final WeDeployEntityFactory getInstance() {
-		return instance;
-	}
+	String getName();
 
-	public WeDeployDemoBuilder getDemoBuilder(String demoName) {
-		return new WeDeployDemoImpl.Builder(demoName);
-	}
-
-	public WeDeployServiceBuilder getServiceBuilder(String id) {
-		return new WeDeployServiceImpl.Builder(id);
-	}
-
-	private static final WeDeployEntityFactory instance =
-		new WeDeployEntityFactory();
+	List<WeDeployService> getServices();
 
 }
