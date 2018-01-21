@@ -52,4 +52,13 @@ public class MainControllerTest {
 			);
 	}
 
+	@Test
+	public void getServiceWithId() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get("/services/mdelapenya")
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json("{'id': 'mdelapenya'}"));
+	}
+
 }
