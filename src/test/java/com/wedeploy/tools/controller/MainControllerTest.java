@@ -61,4 +61,68 @@ public class MainControllerTest {
 			.andExpect(content().json("{'id': 'mdelapenya'}"));
 	}
 
+	@Test
+	public void getServiceWithCommandHealthCheck() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get(
+				"/services/mdelapenya?healthCheck=command:rm -rf /")
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(
+				"{'id': 'mdelapenya', 'healthCheck': {'command': 'rm -rf /'}}"
+			));
+	}
+
+	@Test
+	public void getServiceWithCommandHealthCheckEmpty() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get(
+				"/services/mdelapenya?healthCheck=command:")
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json("{'id': 'mdelapenya'}"));
+	}
+
+	@Test
+	public void getServiceWithCommandHealthCheckIncomplete() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get(
+				"/services/mdelapenya?healthCheck=command")
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json("{'id': 'mdelapenya'}"));
+	}
+
+	@Test
+	public void getServiceWithUrlHealthCheck() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get(
+				"/services/mdelapenya?healthCheck=url:localhost")
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(
+				"{'id': 'mdelapenya', 'healthCheck': {'url': 'localhost'}}"
+			));
+	}
+
+	@Test
+	public void getServiceWithUrlHealthCheckEmpty() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get("/services/mdelapenya?healthCheck=url:")
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json("{'id': 'mdelapenya'}"));
+	}
+
+	@Test
+	public void getServiceWithUrlHealthCheckIncomplete() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get("/services/mdelapenya?healthCheck=url")
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(
+				"{'id': 'mdelapenya'}"
+			));
+	}
+
 }

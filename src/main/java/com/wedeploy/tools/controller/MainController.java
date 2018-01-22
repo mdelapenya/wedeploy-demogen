@@ -18,6 +18,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 
 import com.wedeploy.tools.demogenerator.model.WeDeployEntityFactory;
+import com.wedeploy.tools.demogenerator.model.healtcheck.CommandHealthCheck;
+import com.wedeploy.tools.demogenerator.model.healtcheck.UrlHealthCheck;
 import com.wedeploy.tools.demogenerator.model.service.WeDeployService;
 import com.wedeploy.tools.demogenerator.model.service.WeDeployServiceBuilder;
 
@@ -47,6 +49,7 @@ public class MainController {
         @RequestParam("dependencies") Optional<String> dependencies,
         @RequestParam("env") Optional<String> env,
         @RequestParam("image") Optional<String> image,
+        @RequestParam("healthCheck") Optional<String> healthCheck,
         @RequestParam("memory") Optional<Integer> memory,
         @RequestParam("port") Optional<Integer> port,
         @RequestParam("scale") Optional<Integer> scale,
@@ -54,6 +57,7 @@ public class MainController {
         @RequestParam("zeroDowntime") Optional<Boolean> zeroDowntime) {
 
 		ObjectMapper mapper = new ObjectMapper();
+
 		mapper.registerModule(new Jdk8Module());
 
 		WeDeployServiceBuilder serviceBuilder =
@@ -97,6 +101,28 @@ public class MainController {
         if (image.isPresent()) {
 			serviceBuilder.withImage(image.get());
         }
+
+		if (healthCheck.isPresent()) {
+			String healthCheckParam = healthCheck.get();
+
+			if (healthCheckParam.contains(":")) {
+				String[] variable = healthCheckParam.split(":");
+
+				if (variable.length == 2) {
+					if ("url".equals(variable[0])) {
+						serviceBuilder.withHealthCheck(
+							new UrlHealthCheck(variable[1]));
+					}
+					else if ("command".equals(variable[0])) {
+						serviceBuilder.withHealthCheck(
+							new CommandHealthCheck(variable[1]));
+					}
+					else {
+						// discard health check
+					}
+				}
+			}
+		}
 
         if (memory.isPresent()) {
 			serviceBuilder.withMemory(memory.get());

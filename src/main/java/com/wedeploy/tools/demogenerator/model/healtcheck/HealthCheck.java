@@ -14,13 +14,20 @@
 
 package com.wedeploy.tools.demogenerator.model.healtcheck;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 /**
  * @author Manuel de la Peña
  */
+@JsonSerialize(using = HealthCheckSerializer.class)
 public interface HealthCheck {
 
+	@JsonInclude(Include.NON_NULL)
 	String getHealthCheckKey();
 
+	@JsonInclude(Include.NON_NULL)
 	String getHealthCheckValue();
 
 }
