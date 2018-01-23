@@ -23,6 +23,7 @@ import com.wedeploy.tools.demogenerator.model.healtcheck.UrlHealthCheck;
 import com.wedeploy.tools.demogenerator.model.service.WeDeployService;
 import com.wedeploy.tools.demogenerator.model.service.WeDeployServiceBuilder;
 
+import com.wedeploy.tools.demogenerator.model.template.TemplateBuilder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -148,5 +149,16 @@ public class MainController {
 
 		return serviceBuilder.build();
     }
+
+	@RequestMapping("/templates/liferay/{id}")
+	public @ResponseBody WeDeployService getLiferayTemplate(
+		@PathVariable("id") String id) {
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		mapper.registerModule(new Jdk8Module());
+
+		return TemplateBuilder.buildLiferayTemplate(id);
+	}
 
 }

@@ -145,4 +145,18 @@ public class MainControllerTest {
 			.andExpect(content().json("{'id': 'mdelapenya'}"));
 	}
 
+	@Test
+	public void getTemplateLiferay() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get("/templates/liferay/my-service")
+				.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json("{'id': 'my-service'}"))
+			.andExpect(content().json("{'cpu': 3}"))
+			.andExpect(content().json("{'memory': 4096}"))
+			.andExpect(
+				content().json(
+					"{'image': 'wedeploy/liferay:dxp-sp6-20180123'}"));
+	}
+
 }
