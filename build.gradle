@@ -36,6 +36,8 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
-task run(dependsOn: ':bootRun') << {
-	println 'Boot'
+task run(dependsOn: ':bootRun') {
+    doLast {
+        println 'Boot'
+    }
 }
