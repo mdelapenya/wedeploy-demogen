@@ -6,8 +6,5 @@ services:
 jdk:
   - oraclejdk8
 
-before_script:
-  - ./gradlew install
-
 script:
   - ./gradlew check
