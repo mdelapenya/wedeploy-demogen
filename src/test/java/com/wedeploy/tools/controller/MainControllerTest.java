@@ -125,4 +125,24 @@ public class MainControllerTest {
 			));
 	}
 
+	@Test
+	public void getServiceWithZeroDowntime() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get("/services/mdelapenya?zeroDowntime=1")
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(
+				"{'id': 'mdelapenya', 'zeroDowntime': true}")
+			);
+	}
+
+	@Test
+	public void getServiceWithZeroDowntimeFalse() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get("/services/mdelapenya?zeroDowntime=0")
+			.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json("{'id': 'mdelapenya'}"));
+	}
+
 }
