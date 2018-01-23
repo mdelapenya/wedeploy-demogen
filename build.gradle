@@ -41,3 +41,10 @@ task run(dependsOn: ':bootRun') {
         println 'Boot'
     }
 }
+
+tasks.withType(Test) {
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat = 'full'
+    }
+}
