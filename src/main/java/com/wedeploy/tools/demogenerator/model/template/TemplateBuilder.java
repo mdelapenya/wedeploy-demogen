@@ -18,6 +18,9 @@ import com.wedeploy.tools.demogenerator.model.WeDeployEntityFactory;
 import com.wedeploy.tools.demogenerator.model.service.WeDeployService;
 import com.wedeploy.tools.demogenerator.model.service.WeDeployServiceBuilder;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Manuel de la Peña
  */
@@ -32,6 +35,24 @@ public class TemplateBuilder {
 				.withCpu(3)
 				.withImage("wedeploy/liferay:dxp-sp6-20180123")
 				.withMemory(4096);
+
+		return serviceBuilder.build();
+	}
+
+	public static WeDeployService buildMySQLTemplate(String id) {
+		WeDeployEntityFactory weDeployEntityFactory =
+			WeDeployEntityFactory.getInstance();
+
+		Map<String, String> env = new HashMap<>();
+
+		env.put("MYSQL_USER", "root");
+		env.put("MYSQL_ROOT_PASSWORD", "Passw0rd");
+
+		WeDeployServiceBuilder serviceBuilder =
+			weDeployEntityFactory.getServiceBuilder(id)
+				.withImage("mysql:5.7")
+				.withEnv(env)
+				.withVolume("/var/lib/mysql");
 
 		return serviceBuilder.build();
 	}

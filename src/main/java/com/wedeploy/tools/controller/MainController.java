@@ -161,4 +161,15 @@ public class MainController {
 		return TemplateBuilder.buildLiferayTemplate(id);
 	}
 
+	@RequestMapping("/templates/mysql/{id}")
+	public @ResponseBody WeDeployService getMySQLTemplate(
+		@PathVariable("id") String id) {
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		mapper.registerModule(new Jdk8Module());
+
+		return TemplateBuilder.buildMySQLTemplate(id);
+	}
+
 }

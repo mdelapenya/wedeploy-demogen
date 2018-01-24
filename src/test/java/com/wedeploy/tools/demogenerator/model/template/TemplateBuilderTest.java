@@ -15,6 +15,9 @@
 package com.wedeploy.tools.demogenerator.model.template;
 
 import com.wedeploy.tools.demogenerator.model.service.WeDeployService;
+
+import java.util.Map;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -34,6 +37,21 @@ public class TemplateBuilderTest {
 		Assert.assertEquals(new Integer(3), liferayTemplate.getCpu().get());
 		Assert.assertEquals(
 			new Integer(4096), liferayTemplate.getMemory().get());
+	}
+
+	@Test
+	public void testBuildMySQLTemplate() {
+		WeDeployService mysqlService = TemplateBuilder.buildMySQLTemplate(
+			"mysql");
+
+		Assert.assertEquals("mysql:5.7", mysqlService.getImage().get());
+		Assert.assertEquals("/var/lib/mysql", mysqlService.getVolume().get());
+
+		Map<String, String> env = mysqlService.getEnv().get();
+
+		Assert.assertEquals(2, env.size());
+		Assert.assertEquals("root", env.get("MYSQL_USER"));
+		Assert.assertEquals("Passw0rd", env.get("MYSQL_ROOT_PASSWORD"));
 	}
 
 }

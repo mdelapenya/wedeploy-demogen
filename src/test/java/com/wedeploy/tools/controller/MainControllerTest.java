@@ -159,4 +159,22 @@ public class MainControllerTest {
 					"{'image': 'wedeploy/liferay:dxp-sp6-20180123'}"));
 	}
 
+	@Test
+	public void getTemplateMySQL() throws Exception {
+		mvc.perform(
+			MockMvcRequestBuilders.get("/templates/mysql/my-service")
+				.accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json("{'id': 'my-service'}"))
+			.andExpect(content().json("{'volume': '/var/lib/mysql'}"))
+			.andExpect(
+				content().json(
+					"{'env': {" +
+							"'MYSQL_USER': 'root', " +
+							"'MYSQL_ROOT_PASSWORD': 'Passw0rd'" +
+						"}" +
+					"}"))
+			.andExpect(content().json("{'image': 'mysql:5.7'}"));
+	}
+
 }
